@@ -12,7 +12,15 @@ public class Wizard extends Human {
 		enemy.setHp(enemy.getHp() - 50);
 	}
 
-	public void run() {
-		System.out.println("魔法使いは逃げ出した");
+	public boolean run() {
+		System.out.println("魔法使い" + this.getName() + "は逃げ出した");
+		int r = new java.util.Random().nextInt(3);
+		if (r < 1) {
+			System.out.println("魔法使い" + this.getName() + "は逃げ切れた！");
+			return true;
+		} else {
+			System.out.println("魔法使い" + this.getName() + "はうまく逃げ切れなかった");
+			return false;
+		}
 	}
 }

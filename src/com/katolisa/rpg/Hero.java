@@ -12,7 +12,15 @@ public class Hero extends Human {
 		enemy.setHp(enemy.getHp() - 50);
 	}
 
-	public void run() {
+	public boolean run() {
 		System.out.println("勇者" + this.getName() + "は逃げ出した");
+		int r = new java.util.Random().nextInt(2);
+		if (r < 1) {
+			System.out.println("勇者" + this.getName() + "は逃げ切れた！");
+			return true;
+		} else {
+			System.out.println("勇者" + this.getName() + "はうまく逃げ切れなかった");
+			return false;
+		}
 	}
 }
