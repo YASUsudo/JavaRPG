@@ -26,13 +26,26 @@ public class Main {
 			System.out.println("========== " + turn + "ターン目 ==========");
 			hero.attack(boss);
 			wizard.attack(boss);
+			if (boss.getHp() <= 0) {
+				System.out.println(boss.getName() + "を倒した！");
+				break;
+			}
+
 			if (turn % 2 == 0) {
 				boss.defend();
 			} else {
 				boss.attack(hero);
 			}
+			if (hero.getHp() <= 0) {
+				System.out.println("勇者" + hero.getName() + "は力尽きた");
+			}
+			if (wizard.getHp() <= 0) {
+				System.out.println("魔法使い" + wizard.getName() + "は力尽きた");
+			}
+
 			System.out.println("ボスHP：" + boss.getHp() + "勇者HP：" + hero.getHp() + "魔法使いHP：" + wizard.getHp());
 		}
+		System.out.println("おわり");
 	}
 
 }
