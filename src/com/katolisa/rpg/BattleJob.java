@@ -36,9 +36,11 @@ public class BattleJob {
 		System.out.print("ボスを生成しました\n");
 		System.out.printf("名前：%s、HP：%d、血液型：%d\n\n", boss.getName(), boss.getHp(), boss.getBlood());
 
+		BattleService battleService = new BattleServiceImpl();
 		if (command == ATTACK) {
-			BattleService battleService = new BattleServiceImpl();
-				battleService.attack(party, boss);
+			battleService.attack(party, boss);
+		} else if (command == ESCAPE) {
+			battleService.escape(party, boss);
 		} else {
 			// 例外
 		}

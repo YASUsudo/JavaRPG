@@ -7,4 +7,6 @@ import com.katolisa.rpg.character.impl.Boss;
 
 public interface BattleService {
 	void attack(ArrayList<Character> party, Boss boss);
+	void summon(ArrayList<Character> party, Boss boss);
+	void escape(ArrayList<Character> party, Boss boss);
 }
