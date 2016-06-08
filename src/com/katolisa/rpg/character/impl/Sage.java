@@ -9,7 +9,7 @@ public class Sage extends Character {
 	}
 
 	@Override
-	public void attack(Character enemy) {
+	public void attack(Character target) {
 
 	}
 

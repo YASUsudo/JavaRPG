@@ -28,4 +28,12 @@ public abstract class Character {
 	}
 
 	public abstract void attack(Character c);
+
+	public void damaged(int damage) {
+		if (this.hp < damage) {
+			this.hp = 0;
+		} else {
+			this.hp -= damage;
+		}
+	}
 }

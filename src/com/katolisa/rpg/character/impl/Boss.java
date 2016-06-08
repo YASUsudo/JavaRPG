@@ -1,5 +1,7 @@
 package com.katolisa.rpg.character.impl;
 
+import static com.katolisa.rpg.common.Constants.*;
+
 import com.katolisa.rpg.character.Character;
 
 public class Boss extends Character {
@@ -9,9 +11,9 @@ public class Boss extends Character {
 	}
 
 	@Override
-	public void attack(Character character) {
-		System.out.println(this.getName() + "は" + character.getName() + "を攻撃した");
-		character.setHp(character.getHp() - 50);
+	public void attack(Character target) {
+		System.out.println(this.getName() + "は" + target.getName() + "を攻撃した");
+		target.damaged(POWER_BOSS);
 	}
 
 	public void defend() {
