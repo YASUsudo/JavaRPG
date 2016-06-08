@@ -2,6 +2,10 @@ package com.katolisa.rpg;
 
 public class Wizard extends Human {
 
+	public Wizard(String name, int hp, int blood) {
+		super(name, hp, blood);
+	}
+
 	@Override
 	public void attack(Human enemy) {
 		System.out.println("魔法使いは" + enemy.getName() + "を攻撃した");

@@ -1,13 +1,16 @@
 package com.katolisa.rpg;
 
 public abstract class Human {
+
+	public Human(String name, int hp, int blood) {
+		this.name = name;
+		this.hp = hp;
+		this.blood = blood;
+	}
+
 	private String name;
 	private int hp;
 	private int blood;
-	static final int A = 0;
-	static final int B = 1;
-	static final int O = 2;
-	static final int AB = 3;
 
 	public String getName() {
 		return name;

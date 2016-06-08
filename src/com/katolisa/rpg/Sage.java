@@ -1,8 +1,8 @@
 package com.katolisa.rpg;
 
-public class Boss extends Human {
+public class Sage extends Human {
 
-	public Boss(String name, int hp, int blood) {
+	public Sage(String name, int hp, int blood) {
 		super(name, hp, blood);
 	}
 
