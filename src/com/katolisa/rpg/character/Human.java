@@ -1,4 +1,4 @@
-package com.katolisa.rpg;
+package com.katolisa.rpg.character;
 
 public abstract class Human {
 

@@ -1,5 +1,10 @@
-package com.katolisa.rpg;
+package com.katolisa.rpg.service;
 import java.util.ArrayList;
+
+import com.katolisa.rpg.character.Human;
+import com.katolisa.rpg.character.impl.Boss;
+import com.katolisa.rpg.character.impl.Hero;
+import com.katolisa.rpg.character.impl.Wizard;
 
 public class Main {
 	public static final int A = 0;

@@ -1,4 +1,6 @@
-package com.katolisa.rpg;
+package com.katolisa.rpg.character.impl;
+
+import com.katolisa.rpg.character.Human;
 
 public class Hero extends Human {
 
