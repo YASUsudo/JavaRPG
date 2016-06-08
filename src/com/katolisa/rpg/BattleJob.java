@@ -2,7 +2,9 @@ package com.katolisa.rpg;
 
 import static com.katolisa.rpg.common.Constants.*;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.katolisa.rpg.character.Character;
 import com.katolisa.rpg.character.impl.Boss;
@@ -16,7 +18,7 @@ public class BattleJob {
 	public static void main(String[] args) {
 		//コマンドライン引数の処理
 		int command = Integer.parseInt(args[0]);
-		String dateFormat = args[1];
+		SimpleDateFormat dateFormat = new SimpleDateFormat(args[1]);
 
 		// 初期パーティを作成
 		ArrayList<Character> party = new ArrayList<Character>();
@@ -36,6 +38,10 @@ public class BattleJob {
 		System.out.print("ボスを生成しました\n");
 		System.out.printf("名前：%s、HP：%d、血液型：%d\n\n", boss.getName(), boss.getHp(), boss.getBlood());
 
+		Date now = new Date();
+		String date = dateFormat.format(now);
+		System.out.println(date + "：バトルを開始します");
+
 		BattleService battleService = new BattleServiceImpl();
 		if (command == ATTACK) {
 			battleService.attack(party, boss);
@@ -44,5 +50,9 @@ public class BattleJob {
 		} else {
 			// 例外
 		}
+
+		now = new Date();
+		date = dateFormat.format(now);
+		System.out.println(date + "：バトル終了");
 	}
 }
