@@ -7,8 +7,13 @@ public class Boss extends Human {
 	}
 
 	@Override
-	public void attack(Human enemy) {
+	public void attack(Human character) {
+		System.out.println(this.getName() + "は" + character.getName() + "を攻撃した");
+		character.setHp(character.getHp() - 50);
+	}
 
+	public void defend() {
+		System.out.println(this.getName() + "は身を守っている…");
 	}
 
 }
