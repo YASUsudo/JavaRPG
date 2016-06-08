@@ -23,7 +23,7 @@ public abstract class Character {
 		this.hp = hp;
 	}
 
-	public int getblood() {
+	public int getBlood() {
 		return blood;
 	}
 

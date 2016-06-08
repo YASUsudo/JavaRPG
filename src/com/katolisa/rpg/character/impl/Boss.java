@@ -17,7 +17,7 @@ public class Boss extends Character {
 	}
 
 	public void defend() {
-		System.out.println(this.getName() + "は身を守っている…");
+		System.out.println(this.getName() + "は身を守っている");
 	}
 
 }

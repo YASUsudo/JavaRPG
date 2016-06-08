@@ -10,34 +10,37 @@ import com.katolisa.rpg.character.impl.Hero;
 import com.katolisa.rpg.character.impl.Wizard;
 
 public class Main {
-	public static final int A = 0;
-	public static final int B = 1;
-	public static final int O = 2;
-	public static final int AB = 3;
 
 	public static void main(String[] args) {
+
+		// 初期パーティを作成
+		ArrayList<Character> party = new ArrayList<Character>();
+
+		Hero hero = new Hero("ゆうしゃ", HP_HERO, A);
+		System.out.print("勇者を生成しました\n");
+		System.out.printf("名前：%s、HP：%d、血液型：%d\n\n", hero.getName(), hero.getHp(), hero.getBlood());
+		party.add(hero);
+
+		Wizard wizard = new Wizard("まほうつかい", HP_WIZARD, A);
+		System.out.print("魔法使いを生成しました\n");
+		System.out.printf("名前：%s、HP：%d、血液型：%d\n\n", wizard.getName(), wizard.getHp(), wizard.getBlood());
+		party.add(wizard);
+
+		Boss boss = new Boss("ぼす", HP_BOSS, AB);
+		System.out.print("ボスを生成しました\n");
+		System.out.printf("名前：%s、HP：%d、血液型：%d\n\n", boss.getName(), boss.getHp(), boss.getBlood());
+
+
 		int turn = 0;
-		ArrayList<Character> characters = new ArrayList<Character>();
 
-		Hero hero = new Hero("コマドリ", HP_HERO, A);
-		System.out.println("勇者を生成しました");
-		System.out.println("名前：" + hero.getName() + "、HP：" + hero.getHp() + "、血液型：" + hero.getblood());
-		characters.add(hero);
-
-		Wizard wizard = new Wizard("マドカ", HP_WIZARD, A);
-		System.out.println("魔法使いを生成しました");
-		System.out.println("名前：" + wizard.getName() + "、HP：" + wizard.getHp() + "、血液型：" + wizard.getblood());
-		characters.add(wizard);
-
-		Boss boss = new Boss("ムテキ", HP_BOSS, AB);
-		System.out.println("ボスを生成しました");
-		System.out.println("名前：" + boss.getName() + "、HP：" + boss.getHp() + "、血液型：" + boss.getblood());
-
+		// 攻撃コマンドパターン
 		while(turn < 10) {
 			turn++;
 			System.out.println("========== " + turn + "ターン目 ==========");
-			for (Character h : characters) {
-				h.attack(boss);
+
+			// パーティの行動
+			for (Character character : party) {
+				character.attack(boss);
 			}
 
 			if (boss.getHp() <= 0) {
@@ -45,28 +48,27 @@ public class Main {
 				break;
 			}
 
+			// ボスの行動
 			if (turn % 2 == 0) {
 				boss.defend();
 			} else {
-				int r = new java.util.Random().nextInt(characters.size());
-				boss.attack(characters.get(r));
+				// 攻撃対象の選定
+				int r = new java.util.Random().nextInt(party.size());
+				Character target = party.get(r);
+
+				boss.attack(target);
+				if (target.getHp() <= 0) {
+					System.out.println(target.getName() + "は力尽きた");
+					party.remove(target);
+				}
 			}
 
-			if (characters.contains(hero) && hero.getHp() <= 0) {
-				System.out.println(hero.getName() + "は力尽きた");
-				characters.remove(hero);
-			}
-			if (characters.contains(wizard) && wizard.getHp() <= 0) {
-				System.out.println(wizard.getName() + "は力尽きた");
-				characters.remove(wizard);
-			}
-
-			if (characters.isEmpty()) {
+			if (party.isEmpty()) {
 				System.out.println("味方が全滅した…");
 				break;
 			}
 
-			System.out.println("ボスHP：" + boss.getHp() + "、勇者HP：" + hero.getHp() + "、魔法使いHP：" + wizard.getHp());
+			System.out.printf("\nボスHP：%d、勇者HP：%d、魔法使いHP：%d\n\n", boss.getHp(), hero.getHp(), wizard.getHp());
 		}
 		System.out.println("おわり");
 	}
