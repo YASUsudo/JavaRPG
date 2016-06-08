@@ -1,7 +1,7 @@
 package com.katolisa.rpg.service;
 import java.util.ArrayList;
 
-import com.katolisa.rpg.character.Human;
+import com.katolisa.rpg.character.Character;
 import com.katolisa.rpg.character.impl.Boss;
 import com.katolisa.rpg.character.impl.Hero;
 import com.katolisa.rpg.character.impl.Wizard;
@@ -14,7 +14,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		int turn = 0;
-		ArrayList<Human> characters = new ArrayList<Human>();
+		ArrayList<Character> characters = new ArrayList<Character>();
 
 		Hero hero = new Hero("コマドリ", 100, A);
 		System.out.println("勇者を生成しました");
@@ -33,7 +33,7 @@ public class Main {
 		while(turn < 10) {
 			turn++;
 			System.out.println("========== " + turn + "ターン目 ==========");
-			for (Human h : characters) {
+			for (Character h : characters) {
 				h.attack(boss);
 			}
 

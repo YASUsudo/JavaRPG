@@ -1,15 +1,15 @@
 package com.katolisa.rpg.character.impl;
 
-import com.katolisa.rpg.character.Human;
+import com.katolisa.rpg.character.Character;
 
-public class Hero extends Human {
+public class Hero extends Character {
 
 	public Hero(String name, int hp, int blood) {
 		super(name, hp, blood);
 	}
 
 	@Override
-	public void attack(Human enemy) {
+	public void attack(Character enemy) {
 		System.out.println("勇者" + this.getName() + "は" + enemy.getName() + "を攻撃した");
 		enemy.setHp(enemy.getHp() - 50);
 	}

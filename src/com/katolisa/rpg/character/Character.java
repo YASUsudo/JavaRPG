@@ -1,8 +1,8 @@
 package com.katolisa.rpg.character;
 
-public abstract class Human {
+public abstract class Character {
 
-	public Human(String name, int hp, int blood) {
+	public Character(String name, int hp, int blood) {
 		this.name = name;
 		this.hp = hp;
 		this.blood = blood;
@@ -27,5 +27,5 @@ public abstract class Human {
 		return blood;
 	}
 
-	public abstract void attack(Human h);
+	public abstract void attack(Character c);
 }
