@@ -8,7 +8,7 @@ public class Wizard extends Human {
 
 	@Override
 	public void attack(Human enemy) {
-		System.out.println("魔法使いは" + enemy.getName() + "を攻撃した");
+		System.out.println("魔法使い" + this.getName() + "は" + enemy.getName() + "を攻撃した");
 		enemy.setHp(enemy.getHp() - 50);
 	}
 
