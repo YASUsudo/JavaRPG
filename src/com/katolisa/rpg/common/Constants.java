@@ -5,6 +5,11 @@ public class Constants {
 		// インスタンスの生成禁止
 	}
 
+	// コマンド
+	public static final int ATTACK = 0;
+	public static final int SUMMON  = 1;
+	public static final int ESCAPE = 2;
+
 	// 血液型
 	public static final int A = 0;
 	public static final int B = 1;

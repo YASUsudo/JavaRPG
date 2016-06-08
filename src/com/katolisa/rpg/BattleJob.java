@@ -1,4 +1,4 @@
-package com.katolisa.rpg.service;
+package com.katolisa.rpg;
 
 import static com.katolisa.rpg.common.Constants.*;
 
@@ -9,9 +9,12 @@ import com.katolisa.rpg.character.impl.Boss;
 import com.katolisa.rpg.character.impl.Hero;
 import com.katolisa.rpg.character.impl.Wizard;
 
-public class Main {
+public class BattleJob {
 
 	public static void main(String[] args) {
+		//コマンドライン引数の処理
+		int command = Integer.parseInt(args[0]);
+		String dateFormat = args[1];
 
 		// 初期パーティを作成
 		ArrayList<Character> party = new ArrayList<Character>();
@@ -26,10 +29,16 @@ public class Main {
 		System.out.printf("名前：%s、HP：%d、血液型：%d\n\n", wizard.getName(), wizard.getHp(), wizard.getBlood());
 		party.add(wizard);
 
+		// ボスの生成
 		Boss boss = new Boss("ぼす", HP_BOSS, AB);
 		System.out.print("ボスを生成しました\n");
 		System.out.printf("名前：%s、HP：%d、血液型：%d\n\n", boss.getName(), boss.getHp(), boss.getBlood());
 
+		if (command == ATTACK) {
+			// 攻撃バトル
+		} else {
+			// 例外
+		}
 
 		int turn = 0;
 
