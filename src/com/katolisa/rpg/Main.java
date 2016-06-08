@@ -40,7 +40,8 @@ public class Main {
 			if (turn % 2 == 0) {
 				boss.defend();
 			} else {
-				boss.attack(characters.get(0));
+				int r = new java.util.Random().nextInt(characters.size());
+				boss.attack(characters.get(r));
 			}
 
 			if (characters.contains(hero) && hero.getHp() <= 0) {
