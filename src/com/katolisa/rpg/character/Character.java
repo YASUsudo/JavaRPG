@@ -27,13 +27,10 @@ public abstract class Character {
 		return blood;
 	}
 
-	public abstract void attack(Character c);
+	public abstract void attack(Character target);
 
 	public void damaged(int damage) {
-		if (this.hp < damage) {
-			this.hp = 0;
-		} else {
-			this.hp -= damage;
-		}
+		System.out.println(this.name + "に" + damage + "のダメージ！");
+		this.hp = Math.max(0, (this.hp - damage));
 	}
 }

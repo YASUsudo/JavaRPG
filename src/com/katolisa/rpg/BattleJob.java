@@ -11,7 +11,8 @@ import com.katolisa.rpg.character.impl.Boss;
 import com.katolisa.rpg.character.impl.Hero;
 import com.katolisa.rpg.character.impl.Wizard;
 import com.katolisa.rpg.service.BattleService;
-import com.katolisa.rpg.service.impl.BattleServiceImpl;
+import com.katolisa.rpg.service.impl.BattleServiceAttack;
+import com.katolisa.rpg.service.impl.BattleServiceEscape;
 
 public class BattleJob {
 
@@ -42,11 +43,12 @@ public class BattleJob {
 		String date = dateFormat.format(now);
 		System.out.println(date + "：バトルを開始します");
 
-		BattleService battleService = new BattleServiceImpl();
 		if (command == ATTACK) {
-			battleService.attack(party, boss);
+			BattleService battleService = new BattleServiceAttack();
+			battleService.battle(party, boss);
 		} else if (command == ESCAPE) {
-			battleService.escape(party, boss);
+			BattleService battleService = new BattleServiceEscape();
+			battleService.battle(party, boss);
 		} else {
 			// 例外
 		}
