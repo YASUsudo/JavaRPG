@@ -2,6 +2,8 @@ package com.katolisa.rpg.character.impl;
 
 import static com.katolisa.rpg.common.Constants.*;
 
+import java.util.List;
+
 import com.katolisa.rpg.character.BloodTypeAB;
 import com.katolisa.rpg.character.Character;
 
@@ -20,4 +22,12 @@ public class Boss extends Character implements BloodTypeAB{
 		System.out.println(this.getName() + "は身を守っている");
 	}
 
+	public void endlessAttack(List<Character> targets) {
+		for (Character target : targets) {
+			while (target.isAlive() == true) {
+				this.attack(target);
+			}
+			System.out.println(target.getName() + "は力尽きた");
+		}
+	}
 }

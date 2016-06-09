@@ -18,7 +18,8 @@ public class Hero extends Character implements BloodTypeA {
 		target.damaged(POWER_HERO);
 	}
 
-	public boolean run() {
+	public boolean escape
+	() {
 		System.out.println(this.getName() + "は逃げ出そうとした");
 
 		int random = new Random().nextInt(2);

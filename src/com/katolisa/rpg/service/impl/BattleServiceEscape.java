@@ -21,7 +21,7 @@ public class BattleServiceEscape implements BattleService {
 
 			for (Character character : party) {
 				if(character instanceof BloodTypeA) {
-					boolean runResult = ((BloodTypeA) character).run();
+					boolean runResult = ((BloodTypeA) character).escape();
 					if (runResult == false) {
 						escapeResult = false;
 						System.out.print("\n");

@@ -1,7 +1,6 @@
 package com.katolisa.rpg.service.impl;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import com.katolisa.rpg.character.Character;
 import com.katolisa.rpg.character.impl.Boss;
@@ -32,6 +31,7 @@ public class BattleServiceAttack implements BattleService {
 			if (turn % 2 == 0) {
 				boss.defend();
 			} else {
+				/*
 				// 攻撃対象の選定
 				int r = new Random().nextInt(party.size());
 				Character target = party.get(r);
@@ -41,10 +41,18 @@ public class BattleServiceAttack implements BattleService {
 					System.out.println(target.getName() + "は力尽きた");
 					party.remove(target);
 				}
+				*/
+				boss.endlessAttack(party);
 			}
 
-			if (party.isEmpty()) {
-				System.out.print("\n");
+			boolean f = false;
+			for (Character character : party) {
+				f = character.isAlive();
+				if (f == true) {
+					break;
+				}
+			}
+			if (f == false) {
 				System.out.println("味方が全滅した…");
 				break;
 			}

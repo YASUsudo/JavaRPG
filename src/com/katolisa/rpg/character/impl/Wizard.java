@@ -18,7 +18,7 @@ public class Wizard extends Character implements BloodTypeA {
 		target.damaged(POWER_WIZARD);
 	}
 
-	public boolean run() {
+	public boolean escape() {
 		System.out.println(this.getName() + "は逃げ出そうとした");
 
 		int random = new Random().nextInt(3);
