@@ -8,7 +8,6 @@ import com.katolisa.rpg.service.BattleService;
 
 public class BattleServiceAttack implements BattleService {
 
-	@Override
 	public void battle(ArrayList<Character> party, Boss boss) {
 		int turn = 0;
 
@@ -18,41 +17,44 @@ public class BattleServiceAttack implements BattleService {
 
 			// 味方パーティの行動
 			for (Character character : party) {
-				character.attack(boss);
-				System.out.print("\n");
+				if(character.isAlive() == true) {
+					character.attack(boss);
+				}
 			}
-
-			if (boss.getHp() <= 0) {
+			if (boss.isAlive() == false) {
 				System.out.println(boss.getName() + "を倒した！");
 				break;
 			}
 
 			// ボスの行動
+			boss.setDefending(false);
 			if (turn % 2 == 1) {
 				boss.defend();
 			} else {
-				/*
-				// 攻撃対象の選定
-				int r = new Random().nextInt(party.size());
-				Character target = party.get(r);
+				/* ランダム攻撃
+				int random = new Random().nextInt(party.size());
+				Character target = party.get(random);
+				while(target.isAlive() == false) {
+					random = new Random().nextInt(party.size());
+					target = party.get(random);
+				}
 				boss.attack(target);
 
-				if (target.getHp() <= 0) {
+				if (target.isAlive() == false) {
 					System.out.println(target.getName() + "は力尽きた");
-					party.remove(target);
 				}
 				*/
 				boss.endlessAttack(party);
 			}
 
-			boolean f = false;
+			// パーティの全滅チェック
+			boolean isPartyAlive = false;
 			for (Character character : party) {
-				f = character.isAlive();
-				if (f == true) {
+				if ((isPartyAlive = character.isAlive()) == true) {
 					break;
 				}
 			}
-			if (f == false) {
+			if (isPartyAlive == false) {
 				System.out.println("味方が全滅した…");
 				break;
 			}

@@ -18,7 +18,7 @@ import com.katolisa.rpg.service.impl.BattleServiceSummon;
 public class BattleJob {
 
 	public static void main(String[] args) {
-		//コマンドライン引数の処理
+		//コマンドライン引数の受け取り
 		String command = args[0];
 		SimpleDateFormat dateFormat = new SimpleDateFormat(args[1]);
 
@@ -32,9 +32,10 @@ public class BattleJob {
 		// ボスの生成
 		Boss boss = new Boss("ぼす", HP_BOSS, AB);
 
+		// バトル
 		Date now = new Date();
 		String date = dateFormat.format(now);
-		System.out.println(date + "：バトルを開始します");
+		System.out.println("[" + date + "]バトルを開始します");
 
 		if (command.equals(ATTACK)) {
 			BattleService battleService = new BattleServiceAttack();
@@ -46,11 +47,11 @@ public class BattleJob {
 			BattleService battleService = new BattleServiceSummon();
 			battleService.battle(party, boss);
 		} else {
-			// 例外
+			//
 		}
 
 		now = new Date();
 		date = dateFormat.format(now);
-		System.out.println(date + "：バトルを終了しました");
+		System.out.println("[" + date + "]バトルを終了しました");
 	}
 }

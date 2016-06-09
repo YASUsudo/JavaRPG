@@ -1,7 +1,6 @@
 package com.katolisa.rpg.service.impl;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import com.katolisa.rpg.character.BloodTypeA;
 import com.katolisa.rpg.character.Character;
@@ -9,6 +8,7 @@ import com.katolisa.rpg.character.impl.Boss;
 import com.katolisa.rpg.service.BattleService;
 
 public class BattleServiceEscape implements BattleService {
+
 	public void battle(ArrayList<Character> party, Boss boss) {
 		int turn = 0;
 
@@ -17,42 +17,51 @@ public class BattleServiceEscape implements BattleService {
 			System.out.println("---------- " + turn + "ターン目 ----------");
 
 			// 味方パーティの行動
-			boolean escapeResult = true;
+			boolean partyResult = true;
 
 			for (Character character : party) {
-				if(character instanceof BloodTypeA) {
-					boolean runResult = ((BloodTypeA) character).escape();
-					if (runResult == false) {
-						escapeResult = false;
-						System.out.print("\n");
+				if(character.isAlive() == true && character instanceof BloodTypeA) {
+					boolean characterResult = ((BloodTypeA) character).escape();
+					if (characterResult == false) {
+						partyResult = false;
 						break;
 					}
 				}
-				System.out.print("\n");
 			}
-
-			if (escapeResult == true) {
+			if (partyResult == true) {
 				System.out.println("逃走に成功した！");
 				break;
 			}
 
 			// ボスの行動
-			if (turn % 2 == 0) {
+			boss.setDefending(false);
+			if (turn % 2 == 1) {
 				boss.defend();
 			} else {
-				// 攻撃対象の選定
-				int r = new Random().nextInt(party.size());
-				Character target = party.get(r);
+				/* ランダム攻撃
+				int random = new Random().nextInt(party.size());
+				Character target = party.get(random);
+				while(target.isAlive() == false) {
+					random = new Random().nextInt(party.size());
+					target = party.get(random);
+				}
 				boss.attack(target);
 
-				if (target.getHp() <= 0) {
+				if (target.isAlive() == false) {
 					System.out.println(target.getName() + "は力尽きた");
-					party.remove(target);
 				}
+				*/
+				boss.endlessAttack(party);
 			}
 
-			if (party.isEmpty()) {
-				System.out.print("\n");
+			// パーティの全滅チェック
+			boolean isPartyAlive = false;
+			for (Character character : party) {
+				if ((isPartyAlive = character.isAlive()) == true) {
+					break;
+				}
+			}
+			if (isPartyAlive == false) {
 				System.out.println("味方が全滅した…");
 				break;
 			}
