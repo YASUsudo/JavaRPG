@@ -9,8 +9,8 @@ import com.katolisa.rpg.character.Character;
 
 public class Wizard extends Character implements BloodTypeA {
 
-	public Wizard(String name, int hp, int blood) {
-		super(name, hp, blood);
+	public Wizard(String name, int hp, int bloodType) {
+		super(name, hp, bloodType);
 	}
 
 	public void attack(Character target) {

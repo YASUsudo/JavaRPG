@@ -7,11 +7,12 @@ import java.util.List;
 import com.katolisa.rpg.character.BloodTypeAB;
 import com.katolisa.rpg.character.Character;
 
-public class Boss extends Character implements BloodTypeAB{
+public class Boss extends Character implements BloodTypeAB {
+
 	private boolean isDefending = false;
 
-	public Boss(String name, int hp, int blood) {
-		super(name, hp, blood);
+	public Boss(String name, int hp, int bloodType) {
+		super(name, hp, bloodType);
 	}
 
 	public boolean isDefending() {

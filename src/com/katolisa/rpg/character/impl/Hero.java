@@ -9,8 +9,8 @@ import com.katolisa.rpg.character.Character;
 
 public class Hero extends Character implements BloodTypeA {
 
-	public Hero(String name, int hp, int blood) {
-		super(name, hp, blood);
+	public Hero(String name, int hp, int bloodType) {
+		super(name, hp, bloodType);
 	}
 
 	public void attack(Character target) {
@@ -18,8 +18,7 @@ public class Hero extends Character implements BloodTypeA {
 		target.damaged(POWER_HERO);
 	}
 
-	public boolean escape
-	() {
+	public boolean escape() {
 		System.out.println(this.getName() + "は逃げ出そうとした");
 
 		int random = new Random().nextInt(2);
