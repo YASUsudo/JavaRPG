@@ -25,6 +25,7 @@ public class Constants {
 	// 初期HP
 	public static final int HP_HERO = 100;
 	public static final int HP_WIZARD = 50;
+	public static final int HP_SAGE = 100;
 	public static final int HP_BOSS = 10000;
 
 }

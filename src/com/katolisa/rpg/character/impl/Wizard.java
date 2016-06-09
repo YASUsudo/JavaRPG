@@ -30,4 +30,10 @@ public class Wizard extends Character implements BloodTypeA {
 			return false;
 		}
 	}
+
+	public Sage summon() {
+		System.out.println(this.getName() + "は賢者を召還した");
+		Sage sage = new Sage("けんじゃ", HP_SAGE, B);
+		return sage;
+	}
 }

@@ -1,5 +1,7 @@
 package com.katolisa.rpg.character.impl;
 
+import static com.katolisa.rpg.common.Constants.*;
+
 import com.katolisa.rpg.character.BloodTypeB;
 import com.katolisa.rpg.character.Character;
 
@@ -11,14 +13,13 @@ public class Sage extends Character implements BloodTypeB {
 
 	@Override
 	public void attack(Character target) {
-		// TODO 自動生成されたメソッド・スタブ
-
+		System.out.println(this.getName() + "は" + target.getName() + "を攻撃した");
+		target.damaged(POWER_SAGE);
 	}
 
 	@Override
 	public void sleep() {
-		// TODO 自動生成されたメソッド・スタブ
-
+		System.out.println(this.getName() + "は眠っている…");
 	}
 
 }
