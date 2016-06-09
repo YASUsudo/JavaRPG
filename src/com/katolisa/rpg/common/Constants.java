@@ -6,9 +6,9 @@ public class Constants {
 	}
 
 	// コマンド
-	public static final int ATTACK = 0;
-	public static final int SUMMON  = 1;
-	public static final int ESCAPE = 2;
+	public static final String ATTACK = "attack";
+	public static final String SUMMON  = "summon";
+	public static final String ESCAPE = "escape";
 
 	// 血液型
 	public static final int A = 0;
@@ -25,7 +25,7 @@ public class Constants {
 	// 初期HP
 	public static final int HP_HERO = 100;
 	public static final int HP_WIZARD = 50;
-	public static final int HP_SAGE = 100;
+	public static final int HP_SAGE = 50;
 	public static final int HP_BOSS = 10000;
 
 }

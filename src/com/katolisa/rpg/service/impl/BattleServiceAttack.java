@@ -28,7 +28,7 @@ public class BattleServiceAttack implements BattleService {
 			}
 
 			// ボスの行動
-			if (turn % 2 == 0) {
+			if (turn % 2 == 1) {
 				boss.defend();
 			} else {
 				/*

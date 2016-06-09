@@ -19,7 +19,7 @@ public class BattleJob {
 
 	public static void main(String[] args) {
 		//コマンドライン引数の処理
-		int command = Integer.parseInt(args[0]);
+		String command = args[0];
 		SimpleDateFormat dateFormat = new SimpleDateFormat(args[1]);
 
 		// 初期パーティを作成
@@ -36,13 +36,13 @@ public class BattleJob {
 		String date = dateFormat.format(now);
 		System.out.println(date + "：バトルを開始します");
 
-		if (command == ATTACK) {
+		if (command.equals(ATTACK)) {
 			BattleService battleService = new BattleServiceAttack();
 			battleService.battle(party, boss);
-		} else if (command == ESCAPE) {
+		} else if (command.equals(ESCAPE)) {
 			BattleService battleService = new BattleServiceEscape();
 			battleService.battle(party, boss);
-		} else if (command == SUMMON) {
+		} else if (command.equals(SUMMON)) {
 			BattleService battleService = new BattleServiceSummon();
 			battleService.battle(party, boss);
 		} else {

@@ -8,9 +8,26 @@ import com.katolisa.rpg.character.BloodTypeAB;
 import com.katolisa.rpg.character.Character;
 
 public class Boss extends Character implements BloodTypeAB{
+	private boolean isDefending = false;
 
 	public Boss(String name, int hp, int blood) {
 		super(name, hp, blood);
+	}
+
+	public boolean isDefending() {
+		return isDefending;
+	}
+
+	public void setDefending(boolean isDefending) {
+		this.isDefending = isDefending;
+	}
+
+	@Override
+	public void damaged(int damage) {
+		if(isDefending == true) {
+			damage /= 2;
+		}
+		super.damaged(damage);
 	}
 
 	public void attack(Character target) {
@@ -19,7 +36,8 @@ public class Boss extends Character implements BloodTypeAB{
 	}
 
 	public void defend() {
-		System.out.println(this.getName() + "は身を守っている");
+		System.out.println(this.getName() + "は防御した");
+		this.isDefending = true;
 	}
 
 	public void endlessAttack(List<Character> targets) {
