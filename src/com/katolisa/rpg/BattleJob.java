@@ -1,6 +1,7 @@
 package com.katolisa.rpg;
 
 import static com.katolisa.rpg.common.Constants.*;
+import static com.katolisa.rpg.common.Utils.*;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import com.katolisa.rpg.character.Character;
 import com.katolisa.rpg.character.impl.Boss;
 import com.katolisa.rpg.character.impl.Hero;
 import com.katolisa.rpg.character.impl.Wizard;
+import com.katolisa.rpg.exception.ArgumentException;
 import com.katolisa.rpg.service.BattleService;
 import com.katolisa.rpg.service.impl.BattleServiceAttack;
 import com.katolisa.rpg.service.impl.BattleServiceEscape;
@@ -19,6 +21,12 @@ public class BattleJob {
 
 	public static void main(String[] args) {
 		//コマンドライン引数の受け取り
+		try {
+			validateArguments(args);
+		} catch (ArgumentException e) {
+			e.printStackTrace();
+			return;
+		}
 		String command = args[0];
 		SimpleDateFormat dateFormat = new SimpleDateFormat(args[1]);
 

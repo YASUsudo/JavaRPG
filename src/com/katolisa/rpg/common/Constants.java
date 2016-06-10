@@ -1,5 +1,8 @@
 package com.katolisa.rpg.common;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Constants {
 	private Constants() {
 		// インスタンスの生成禁止
@@ -9,6 +12,7 @@ public class Constants {
 	public static final String ATTACK = "attack";
 	public static final String SUMMON  = "summon";
 	public static final String ESCAPE = "escape";
+	public static final List<String> COMMANDS = Arrays.asList(ATTACK, SUMMON, ESCAPE);
 
 	// 血液型
 	public static final int A = 0;
