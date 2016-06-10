@@ -51,6 +51,8 @@ public class BattleServiceEscape implements BattleService {
 					System.out.println(target.getName() + "は力尽きた");
 				}
 				*/
+
+				//連続攻撃
 				boss.endlessAttack(party);
 			}
 
