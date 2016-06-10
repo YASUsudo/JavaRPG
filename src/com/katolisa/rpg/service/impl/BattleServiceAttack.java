@@ -58,6 +58,12 @@ public class BattleServiceAttack implements BattleService {
 				System.out.println("味方が全滅した…");
 				break;
 			}
+
+			// 各キャラの残りHP表示
+			for (Character character : party) {
+				System.out.println(character.getName() + "の残りHP：" + character.getHp());
+			}
+			System.out.println(boss.getName() + "の残りHP：" + boss.getHp());
 		}
 	}
 }
